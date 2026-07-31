@@ -104,6 +104,10 @@ input::placeholder, textarea::placeholder { color: #818b87; }
 input:focus, select:focus, textarea:focus { border-color: var(--gold-dark); outline: 2px solid rgba(199,167,104,.28); }
 .consent { display: grid; grid-template-columns: 20px 1fr; gap: .8rem; align-items: start; cursor: pointer; color: #4d5d57; font-size: .74rem; }
 .consent input { width: 18px; min-height: 18px; margin: 2px 0 0; accent-color: var(--ink); }
+.privacy-reassurance { padding: 1rem; display: grid; grid-template-columns: 25px 1fr; gap: .8rem; background: var(--ivory); border: 1px solid var(--line); color: #4d5d57; }
+.privacy-reassurance > span { display: grid; place-items: center; width: 25px; height: 25px; border: 1px solid var(--ink); border-radius: 50%; font-family: var(--serif); }
+.privacy-reassurance p { margin: 0; font-size: .72rem; }
+.privacy-reassurance a { font-weight: 700; border-bottom: 1px solid currentColor; }
 .form-submit { padding-top: .8rem; }
 .button-gold { width: 100%; background: var(--gold); color: var(--ink); }
 .button-gold:hover { background: #d4b77c; }

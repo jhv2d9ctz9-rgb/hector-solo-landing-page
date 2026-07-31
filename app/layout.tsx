@@ -4,11 +4,11 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Hector Solo | Personal Airport Journeys from London",
   description:
-    "Register your interest in Hector Solo, a proposed independent, pre-booked airport-transfer service from Greater London to Heathrow, Gatwick and Stansted.",
+    "Help shape Hector Solo, a proposed founder-led London airport-transfer service being developed around reliability, consistency and personal service.",
   keywords: ["London airport transfer", "Heathrow transfer", "Gatwick transfer", "Stansted transfer", "private hire London"],
   openGraph: {
     title: "Hector Solo — Your airport journey, personally handled",
-    description: "A proposed personal, dependable airport-transfer service for Greater London. Register your interest — no payment or obligation.",
+    description: "Share how you travel and help shape a proposed founder-led London airport-transfer service before launch.",
     type: "website",
     locale: "en_GB",
     siteName: "Hector Solo",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Hector Solo — Personal airport journeys",
-    description: "A proposed independent airport-transfer service for Greater London.",
+    description: "Help shape a proposed founder-led airport-transfer service for Greater London before launch.",
     images: ["/og.png"],
   },
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },

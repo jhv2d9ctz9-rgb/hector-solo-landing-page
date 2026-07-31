@@ -9,9 +9,9 @@ const airports = [
 ];
 
 const benefits = [
-  ["01", "Hear first", "Receive considered updates as the service takes shape."],
-  ["02", "Shape the service", "Tell us which airport you use and how often you travel."],
-  ["03", "Keep it simple", "There is no payment, commitment or obligation."],
+  ["01", "Share how you travel", "Tell us which airport you use and what matters most on the journey."],
+  ["02", "Influence the service", "Your priorities will help guide how Hector Solo develops before launch."],
+  ["03", "Keep it simple", "There is no payment, commitment or confirmed booking."],
 ];
 
 export default function Home() {
@@ -45,22 +45,22 @@ export default function Home() {
           <a href="#idea">The idea</a>
           <a href="#airports">Airports</a>
           <a href="#about">About</a>
-          <a className="nav-cta" href="#register">Register interest</a>
+          <a className="nav-cta" href="#register">Help shape Hector Solo</a>
         </nav>
       </header>
 
       <main id="main">
         <section className="hero" id="top" aria-labelledby="hero-title">
           <div className="hero-copy">
-            <p className="eyebrow"><span /> A proposed independent service</p>
+            <p className="eyebrow"><span /> A proposed founder-led service</p>
             <h1 id="hero-title">Your airport journey. <em>Personally handled.</em></h1>
             <p className="hero-intro">
-              A dependable, pre-booked journey from Greater London to the airport,
-              with the same trusted driver.
+              I&apos;m building a different kind of airport transfer service. Before
+              it launches, I&apos;d like your help shaping it.
             </p>
             <div className="hero-actions">
               <a className="button button-primary" href="#register">
-                Register your interest <span aria-hidden="true">↘</span>
+                Help Shape Hector Solo <span aria-hidden="true">↘</span>
               </a>
               <p>No payment. No obligation.</p>
             </div>
@@ -91,18 +91,18 @@ export default function Home() {
           </div>
           <div className="prose">
             <p className="lead">
-              Hector Solo is being developed as a small, independent airport-transfer
-              service for people who prefer to know who is driving them.
+              Hector Solo is a proposed founder-led London airport-transfer service
+              for people who value reliability, consistency and personal service.
             </p>
             <p>
-              The idea is simple: personal, pre-booked journeys delivered with care,
-              reliability and consistency — without the uncertainty of a different
-              driver every time.
+              Before launch, the founder is gathering genuine customer interest and
+              feedback. What prospective customers share here will help influence
+              how the service is developed.
             </p>
             <aside className="notice">
               <span aria-hidden="true">i</span>
-              <p><strong>Hector Solo has not launched yet.</strong> The website is here
-                to explain the idea and understand potential demand.</p>
+              <p><strong>Hector Solo has not launched yet.</strong> This is market
+                research, not a booking service, and no confirmed journeys are being accepted.</p>
             </aside>
           </div>
         </section>
@@ -130,9 +130,9 @@ export default function Home() {
 
         <section className="section why-section" aria-labelledby="why-title">
           <div className="why-title">
-            <p className="section-number">03 / Why register</p>
-            <h2 id="why-title">An early expression of interest.</h2>
-            <p>Registration helps shape the service before launch. It is not a booking request.</p>
+            <p className="section-number">03 / Why take part</p>
+            <h2 id="why-title">Help shape what comes next.</h2>
+            <p>Share what matters to you so the service can be developed around genuine customer needs.</p>
           </div>
           <div className="benefit-list">
             {benefits.map(([number, title, text]) => (
@@ -141,15 +141,15 @@ export default function Home() {
                 <div><h3>{title}</h3><p>{text}</p></div>
               </article>
             ))}
-            <p className="booking-note"><strong>Please note</strong> — registering does not constitute a confirmed booking.</p>
+            <p className="booking-note"><strong>Please note</strong> — taking part is an expression of interest and does not constitute a confirmed booking.</p>
           </div>
         </section>
 
         <section className="register-section" id="register" aria-labelledby="register-title">
           <div className="register-copy">
-            <p className="section-number light">04 / Register interest</p>
-            <h2 id="register-title">Tell us about your airport travel.</h2>
-            <p>Your answers will help Hector Solo understand likely demand. It takes around two minutes.</p>
+            <p className="section-number light">04 / Help shape the service</p>
+            <h2 id="register-title">Tell us what matters on your journey.</h2>
+            <p>Register your interest and share a little about how you travel. Your answers will help guide the service before launch.</p>
             <div className="register-promise">
               <span aria-hidden="true">✓</span>
               <p>No payment details<br /><small>No commitment or confirmed booking</small></p>
@@ -159,9 +159,9 @@ export default function Home() {
           {submitted ? (
             <div className="success-card" id="form-success" role="status" tabIndex={-1}>
               <span aria-hidden="true">✓</span>
-              <p className="eyebrow">Interest registered</p>
-              <h3>Thank you. You&apos;re on the list.</h3>
-              <p>We&apos;ll use your answers to help shape the proposed service and send occasional launch updates with your consent.</p>
+              <p className="eyebrow">Response received</p>
+              <h3>Thank you for helping shape Hector Solo.</h3>
+              <p>Your response will help guide how the service is developed before launch.</p>
               <button className="text-button" type="button" onClick={() => setSubmitted(false)}>Send another response</button>
             </div>
           ) : (
@@ -173,44 +173,45 @@ export default function Home() {
               onSubmit={handleSubmit}
             >
               <input type="hidden" name="form-name" value="hector-solo-interest" />
-              <div className="field full">
-                <label htmlFor="full-name">Full name</label>
+              <div className="field">
+                <label htmlFor="full-name">Name</label>
                 <input id="full-name" name="full-name" type="text" autoComplete="name" required placeholder="Your full name" />
               </div>
               <div className="field">
                 <label htmlFor="email">Email address</label>
                 <input id="email" name="email" type="email" autoComplete="email" required placeholder="you@example.com" />
               </div>
-              <div className="field">
-                <label htmlFor="postcode">London postcode</label>
-                <input id="postcode" name="postcode" type="text" autoComplete="postal-code" required placeholder="e.g. SW11" pattern="[A-Za-z]{1,2}[0-9][0-9A-Za-z]?\s*[0-9]?[A-Za-z]{0,2}" title="Enter a valid London postcode or postcode district" />
-              </div>
-              <div className="field">
-                <label htmlFor="airport">Most frequently used airport</label>
+              <div className="field full">
+                <label htmlFor="airport">Which airport do you use most?</label>
                 <select id="airport" name="airport" required defaultValue="">
                   <option value="" disabled>Select an airport</option>
                   <option>Heathrow</option><option>Gatwick</option><option>Stansted</option>
-                  <option>Another airport</option>
-                </select>
-              </div>
-              <div className="field">
-                <label htmlFor="journeys">Expected airport journeys per year</label>
-                <select id="journeys" name="journeys-per-year" required defaultValue="">
-                  <option value="" disabled>Select a range</option>
-                  <option>1–2 journeys</option><option>3–5 journeys</option>
-                  <option>6–10 journeys</option><option>More than 10 journeys</option>
+                  <option>Other</option><option>I do not travel regularly</option>
                 </select>
               </div>
               <div className="field full">
-                <label htmlFor="message">Anything else? <span>Optional</span></label>
-                <textarea id="message" name="message" rows={4} placeholder="Tell us about your usual journeys or what matters most to you." />
+                <label htmlFor="priority">What matters most when booking an airport journey?</label>
+                <select id="priority" name="booking-priority" required defaultValue="">
+                  <option value="" disabled>Select what matters most</option>
+                  <option>Reliability</option><option>Price</option>
+                  <option>Knowing who the driver is</option><option>Comfort</option>
+                  <option>Punctuality</option><option>Help with luggage</option><option>Other</option>
+                </select>
+              </div>
+              <div className="field full">
+                <label htmlFor="message">Optional comments <span>Optional</span></label>
+                <textarea id="message" name="message" rows={4} placeholder="What would make you choose Hector Solo instead of an app-based service?" />
+              </div>
+              <div className="privacy-reassurance full">
+                <span aria-hidden="true">i</span>
+                <p>Your details will only be used for Hector Solo research and launch updates. They will not be sold or shared for unrelated marketing. <a href="#privacy">Privacy notice placeholder</a></p>
               </div>
               <label className="consent full" htmlFor="consent">
                 <input id="consent" name="consent" type="checkbox" value="yes" required />
-                <span>I agree to receive occasional Hector Solo launch updates by email. I can unsubscribe at any time.</span>
+                <span>I agree to receive Hector Solo research and launch updates by email. I can unsubscribe at any time.</span>
               </label>
               <div className="form-submit full">
-                <button className="button button-gold" type="submit">Register my interest <span aria-hidden="true">→</span></button>
+                <button className="button button-gold" type="submit">Help Shape Hector Solo <span aria-hidden="true">→</span></button>
                 <p>By submitting, you confirm this is an expression of interest only — not a booking.</p>
               </div>
             </form>
@@ -232,16 +233,16 @@ export default function Home() {
         </section>
 
         <section className="closing">
-          <p className="eyebrow"><span /> Be there at the beginning</p>
-          <h2>Interested in a more personal way to reach the airport?</h2>
-          <a className="button button-primary" href="#register">Register your interest <span aria-hidden="true">↗</span></a>
+          <p className="eyebrow"><span /> Help shape what comes next</p>
+          <h2>What would make airport travel feel more personal?</h2>
+          <a className="button button-primary" href="#register">Help Shape Hector Solo <span aria-hidden="true">↗</span></a>
         </section>
       </main>
 
       <footer>
         <div className="footer-main">
           <a className="wordmark footer-brand" href="#top"><span className="wordmark-mark">HS</span><span>Hector Solo</span></a>
-          <p>A proposed independent airport-transfer service for Greater London.</p>
+          <p>A proposed founder-led airport-transfer service for Greater London.</p>
           <div className="footer-links">
             <a href="https://instagram.com/" target="_blank" rel="noreferrer">Instagram <span aria-hidden="true">↗</span></a>
             <a href="mailto:hello@hectorsolo.co.uk">hello@hectorsolo.co.uk</a>
@@ -249,7 +250,7 @@ export default function Home() {
           </div>
         </div>
         <div className="privacy-note" id="privacy">
-          <p><strong>Privacy notice:</strong> Details submitted through this site should only be used to understand interest in Hector Solo and, with consent, to send launch updates. Replace this summary with your full privacy policy before collecting live submissions.</p>
+          <p><strong>Privacy notice placeholder:</strong> Details submitted through this site will only be used for Hector Solo research and, with consent, launch updates. They will not be sold or shared for unrelated marketing. Replace this summary with a formal privacy notice before collecting live submissions.</p>
         </div>
         <div className="footer-bottom">
           <p>© {new Date().getFullYear()} Hector Solo. All rights reserved.</p>
