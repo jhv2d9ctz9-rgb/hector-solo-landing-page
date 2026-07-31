@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Hector Solo form detection</title>
+  </head>
+  <body>
+    <!-- Netlify scans this static form during deployment. Visitors use the
+         matching form rendered by the Next.js landing page. -->
+    <form name="hector-solo-interest" method="POST" data-netlify="true" hidden>
+      <input type="hidden" name="form-name" value="hector-solo-interest" />
+      <input type="text" name="full-name" />
+      <input type="email" name="email" />
+      <select name="airport"><option value=""></option></select>
+      <select name="booking-priority"><option value=""></option></select>
+      <textarea name="message"></textarea>
+      <input type="checkbox" name="consent" value="yes" />
+    </form>
+  </body>
+</html>

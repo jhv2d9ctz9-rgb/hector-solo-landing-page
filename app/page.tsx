@@ -16,20 +16,40 @@ const benefits = [
 
 export default function Home() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submissionError, setSubmissionError] = useState("");
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
 
     if (!form.reportValidity()) return;
 
-    // Demo success state. When connecting Netlify Forms or Formspree,
-    // remove preventDefault above and set the form action as described in README.md.
-    setSubmitted(true);
-    form.reset();
-    window.setTimeout(() => {
-      document.getElementById("form-success")?.focus();
-    }, 0);
+    setSubmitting(true);
+    setSubmissionError("");
+
+    const body = new URLSearchParams();
+    new FormData(form).forEach((value, key) => body.append(key, value.toString()));
+
+    try {
+      const response = await fetch("/__forms.html", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: body.toString(),
+      });
+
+      if (!response.ok) throw new Error("Form submission failed");
+
+      setSubmitted(true);
+      form.reset();
+      window.setTimeout(() => {
+        document.getElementById("form-success")?.focus();
+      }, 0);
+    } catch {
+      setSubmissionError("We couldn’t send your response. Please try again in a moment.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -169,6 +189,7 @@ export default function Home() {
               className="interest-form"
               name="hector-solo-interest"
               method="POST"
+              action="/__forms.html"
               data-netlify="true"
               onSubmit={handleSubmit}
             >
@@ -211,7 +232,10 @@ export default function Home() {
                 <span>I agree to receive Hector Solo research and launch updates by email. I can unsubscribe at any time.</span>
               </label>
               <div className="form-submit full">
-                <button className="button button-gold" type="submit">Help Shape Hector Solo <span aria-hidden="true">→</span></button>
+                <button className="button button-gold" type="submit" disabled={submitting}>
+                  {submitting ? "Sending…" : "Help Shape Hector Solo"} <span aria-hidden="true">→</span>
+                </button>
+                {submissionError ? <p className="form-error" role="alert">{submissionError}</p> : null}
                 <p>By submitting, you confirm this is an expression of interest only — not a booking.</p>
               </div>
             </form>

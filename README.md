@@ -22,14 +22,15 @@ The two visual placeholders in `app/page.tsx` are clearly commented. Replace eac
 
 ## Connect the form
 
-The form currently validates in the browser and shows a demonstration success message without sending data.
+The form is prepared for Netlify Forms. It validates in the browser, submits
+URL-encoded data to the static detection form in `public/__forms.html`, and
+shows clear success or error feedback.
 
 ### Netlify Forms
 
-1. Keep `name="hector-solo-interest"`, `method="POST"`, `data-netlify="true"` and the hidden `form-name` input.
-2. Remove the `onSubmit={handleSubmit}` property from the form.
-3. Add a success page and set `action="/success"` on the form, or retain the current success design and submit with `fetch`.
-4. Deploy to Netlify and confirm the form appears under **Forms**.
+1. Keep the field names in `app/page.tsx` and `public/__forms.html` in sync.
+2. Deploy to Netlify and confirm `hector-solo-interest` appears under **Forms**.
+3. Submit one test response from the deployed site and confirm it appears in Netlify.
 
 ### Formspree
 

@@ -66,6 +66,8 @@ test("keeps the pre-launch safeguards and accessible form contract in source", a
   assert.doesNotMatch(page, /htmlFor="postcode"/);
   assert.doesNotMatch(page, /htmlFor="journeys"/);
   assert.match(page, /form\.reportValidity\(\)/);
+  assert.match(page, /fetch\("\/__forms\.html"/);
+  assert.match(page, /role="alert"/);
   assert.match(page, /role="status"/);
   assert.match(page, /tabIndex=\{-1\}/);
   assert.match(layout, /Hector Solo \| Personal Airport Journeys from London/);
@@ -73,5 +75,9 @@ test("keeps the pre-launch safeguards and accessible form contract in source", a
   assert.match(css, /prefers-reduced-motion/);
 
   await access(new URL("../public/og.png", import.meta.url));
+  const detectionForm = await readFile(new URL("../public/__forms.html", import.meta.url), "utf8");
+  assert.match(detectionForm, /name="hector-solo-interest"/);
+  assert.match(detectionForm, /name="booking-priority"/);
+  assert.match(detectionForm, /data-netlify="true"/);
   await assert.rejects(access(new URL("../app/_sites-preview/SkeletonPreview.tsx", import.meta.url)));
 });
