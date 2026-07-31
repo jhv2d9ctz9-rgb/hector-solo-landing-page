@@ -1,0 +1,8 @@
+# Netlify builds this project with native Next.js output. The existing
+# `pnpm run build` command remains available for the vinext/Sites workflow.
+[build]
+  command = "pnpm run build:netlify"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
