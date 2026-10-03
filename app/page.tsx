@@ -32,7 +32,7 @@ export default function Home() {
     new FormData(form).forEach((value, key) => body.append(key, value.toString()));
 
     try {
-      const response = await fetch("/__forms.html", {
+      const response = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: body.toString(),
@@ -189,7 +189,7 @@ export default function Home() {
               className="interest-form"
               name="hector-solo-interest"
               method="POST"
-              action="/__forms.html"
+              action="/"
               data-netlify="true"
               onSubmit={handleSubmit}
             >
