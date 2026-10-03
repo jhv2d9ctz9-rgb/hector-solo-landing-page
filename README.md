@@ -23,9 +23,9 @@ The two visual placeholders in `app/page.tsx` are clearly commented. Replace eac
 ## Connect the form
 
 The form is prepared for Netlify Forms. It validates in the browser, submits
-URL-encoded data to the site root, and shows clear success or error feedback.
-The static form in `public/__forms.html` is used only for Netlify's build-time
-form detection.
+URL-encoded data to the static form endpoint in `public/__forms.html`, and
+shows clear success or error feedback. The static form also lets Netlify detect
+the JavaScript-rendered form during deployment.
 
 ### Netlify Forms
 

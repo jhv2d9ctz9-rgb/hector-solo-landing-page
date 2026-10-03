@@ -66,9 +66,8 @@ test("keeps the pre-launch safeguards and accessible form contract in source", a
   assert.doesNotMatch(page, /htmlFor="postcode"/);
   assert.doesNotMatch(page, /htmlFor="journeys"/);
   assert.match(page, /form\.reportValidity\(\)/);
-  assert.match(page, /fetch\("\/"/);
-  assert.match(page, /action="\/"/);
-  assert.doesNotMatch(page, /fetch\("\/__forms\.html"/);
+  assert.match(page, /fetch\("\/__forms\.html"/);
+  assert.match(page, /action="\/__forms\.html"/);
   assert.match(page, /role="alert"/);
   assert.match(page, /role="status"/);
   assert.match(page, /tabIndex=\{-1\}/);
